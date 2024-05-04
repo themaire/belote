@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+}
+  
+.partie {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: auto;
+  
+}
+
+.equipes {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.equipeNous {
+  text-align: center;
+  background-color:  #dfd7ff;
+  color : blue;
+}
+
+.equipeEux {
+  text-align: center;
+  background-color:  #cfffd4;
+  color : rgb(84, 173, 1);
+}
+
+input[type="number"] {
+  width: 60px;
+}
+
+select {
+  margin-left: 10px;
+}
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
