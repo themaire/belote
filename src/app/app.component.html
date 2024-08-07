@@ -1,43 +1,60 @@
 <div class="container">
-
-  <div class="partie">
-    <h4>Compteur de points de belote</h4>
-    <h4>Partie {{ partieCourante }}</h4>
-    <div class="equipes">
-      <div class="equipeNous">
-        <h3>Nous</h3>
-        <input type="number" [(ngModel)]="pointsNous" min="0" placeholder="Nos points">
-        <select [(ngModel)]="annonceNous">
-          <option value="0">Sans annonce</option>
-          <option value="20">Belote</option>
-          <option value="1">Capot</option>
-        </select>
-        <br><br>
-        Total {{ this.totalPointsNous }}
+  <div class="parties imageDeFond">
+    <div class="titre">
+      <div class="principal">
+        <h1>Compteur de points de belote !</h1>
       </div>
-      <div class="equipeEux">
-        <h3>Eux</h3>
-        <select [(ngModel)]="annonceEux">
-          <option value="0">Sans annonce</option>
-          <option value="20">Belote</option>
-          <option value="1">Capot</option>
-        </select>
-        <input type="number" [(ngModel)]="pointsEux" min="0" placeholder="Leurs points">
-        <br><br>
-        Total {{ this.totalPointsEux }}
+      <div class="nb_partie">
+        <h2>Partie {{ partieCourante }}</h2>
       </div>
     </div>
-    <div class="buttons">
-      <button (click)="calculerPointsPartie()">Calculer</button>
-      <button (click)="raz()">RAZ</button>
-    
-      <div *ngIf="resultatPartie">
-        <p>**Partie {{ partieCourante }} :**</p>
-        <p>Nous : {{ resultatPartie.pointsNous }}</p>
-        <p>Eux : {{ resultatPartie.pointsEux }}</p>
+    <main>
+      <div class="equipes">
+        <div class="joueur1 joueur">
+          <div class="equipeNous">
+            <h3>Nous</h3>
+            <input
+              type="number"
+              [(ngModel)]="pointsNous"
+              min="0"
+              placeholder="Nos points"
+            />
+            <select [(ngModel)]="annonceNous">
+              <option value="0">Sans annonce</option>
+              <option value="20">Belote</option>
+              <option value="1">Capot</option>
+            </select>
+            <div class="totalNous">Total {{ this.totalPointsNous }}</div>
+          </div>
+        </div>
+        <div class="joueur2 joueur">
+          <div class="equipeEux">
+            <h3>Eux</h3>
+            <input
+              type="number"
+              [(ngModel)]="pointsEux"
+              min="0"
+              placeholder="Leurs points"
+            />
+            <select [(ngModel)]="annonceEux">
+              <option value="0">Sans annonce</option>
+              <option value="20">Belote</option>
+              <option value="1">Capot</option>
+            </select>
+            <div class="totalEux">Total {{ this.totalPointsEux }}</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
-
-  <button (click)="ajouterPartie()">Ajouter une partie</button>
+  <div class="boutons">
+    <button (click)="calculerPointsPartie()">Calculer</button>
+    <button (click)="raz()">RAZ</button>
+    <div *ngIf="resultatPartie">
+      <p>**Partie {{ partieCourante }} :**</p>
+      <p>Nous : {{ resultatPartie.pointsNous }}</p>
+      <p>Eux : {{ resultatPartie.pointsEux }}</p>
+    </div>
+    <button (click)="ajouterPartie()">Ajouter une partie</button>
+  </div>
 </div>
