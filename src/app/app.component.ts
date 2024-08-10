@@ -7,19 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   maxPoints = 162;
-  deuxSoixanteDeux = 262;
-  partieCourante = 1;
+  deuxCinquenteDeux = 252;
+  donneCourante = 1;
   pointsNous: number = 0;
   pointsEux: number = 0;
-  totalPartieNous = 0;
-  totalPartieEux = 0;
+  totalDonneNous = 0;
+  totalDonneEux = 0;
   totalPointsNous = 0;
   totalPointsEux = 0;
   annonceNous = 0;
   annonceEux = 0;
-  resultatPartie: any;
+  resultatDonne: any;
 
-  calculerPointsPartie() {
+  calculerPointsDonne() {
     if (Number(this.annonceEux) === 20 || Number(this.annonceNous) === 20) {
       this.maxPoints = 182;
     }
@@ -31,10 +31,10 @@ export class AppComponent {
       this.annonceEux = 0;
     }else if (Number(this.annonceNous) === 1 || Number(this.annonceEux) === 1){
       if( Number(this.annonceNous) === 1 ){
-        this.pointsEux = this.deuxSoixanteDeux;
+        this.pointsEux = this.deuxCinquenteDeux;
         this.pointsNous = 0;
       }else if( Number(this.annonceEux) === 1 ){
-        this.pointsNous = this.deuxSoixanteDeux;
+        this.pointsNous = this.deuxCinquenteDeux;
         this.pointsEux = 0;
       }
 
@@ -79,29 +79,46 @@ export class AppComponent {
       }
     }
 
-    this.resultatPartie = {
-      partie: this.partieCourante,
+    this.resultatDonne = {
+      partie: this.donneCourante,
       pointsNous: this.pointsNous,
       pointsEux: this.pointsEux
     };
   }
 
-  raz() {
+  razDonne() {
     this.pointsNous = 0;
     this.pointsEux = 0;
     this.annonceNous = 0;
     this.annonceEux = 0;
   }
 
-  ajouterPartie() {
-    this.partieCourante++;
-    this.totalPointsNous += this.resultatPartie["pointsNous"];
-    this.totalPointsEux += this.resultatPartie["pointsEux"];
+  ajouterDonne() {
+    this.donneCourante++;
+    this.totalPointsNous += this.resultatDonne["pointsNous"];
+    this.totalPointsEux += this.resultatDonne["pointsEux"];
     this.pointsNous = 0;
     this.pointsEux = 0;
     this.annonceNous = 0;
     this.annonceEux = 0;
-    this.resultatPartie = null;
+    this.resultatDonne = null;
+    this.maxPoints = 162;
+  }
+
+  nouvelleManche() {
+    this.donneCourante = 1;
+
+    // Manche
+    this.totalPointsNous = 0;
+    this.totalPointsEux = 0;
+
+    // Donne
+    this.pointsNous = 0;
+    this.pointsEux = 0;
+    this.annonceNous = 0;
+    this.annonceEux = 0;
+    this.resultatDonne = null;
+
     this.maxPoints = 162;
   }
 }

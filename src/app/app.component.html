@@ -5,7 +5,7 @@
         <h1>Compteur de points de belote !</h1>
       </div>
       <div class="nb_partie">
-        <h2>Partie {{ partieCourante }}</h2>
+        <h2>Donne {{ donneCourante }}</h2>
       </div>
     </div>
     <main>
@@ -48,13 +48,16 @@
     </main>
   </div>
   <div class="boutons">
-    <button (click)="calculerPointsPartie()">Calculer</button>
-    <button (click)="raz()">RAZ</button>
-    <div *ngIf="resultatPartie">
-      <p>**Partie {{ partieCourante }} :**</p>
-      <p>Nous : {{ resultatPartie.pointsNous }}</p>
-      <p>Eux : {{ resultatPartie.pointsEux }}</p>
+    <button (click)="calculerPointsDonne()">Calculer donne</button>
+    <div class="point" *ngIf="resultatDonne">
+      <p>**Donne {{ donneCourante }} :**</p>
+      <p>Nous : {{ resultatDonne.pointsNous }}</p>
+      <p>Eux : {{ resultatDonne.pointsEux }}</p>
     </div>
-    <button (click)="ajouterPartie()">Ajouter une partie</button>
+    <button (click)="razDonne()">RAZ</button>
+
+    <!-- Soit l'un ou l'autre bouton -->
+    <button *ngIf="donneCourante < 12" (click)="ajouterDonne()">Ajouter une donne</button>
+    <button *ngIf="donneCourante == 12" (click)="nouvelleManche()">Nouvelle manche</button>
   </div>
 </div>

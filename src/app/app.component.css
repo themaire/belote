@@ -116,11 +116,27 @@ button {
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
   padding: 10px 20px;
+  box-shadow: 10px 5px 5px black;
 }
+.point {
+  background: white;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 10px 5px 5px black;
+}
+
+.point p {
+  color: black;
+  text-align: center;
+}
+
 button:hover {
   background-color: rgb(236, 0, 3, 0.8);
   color: white;
 }
+
 
 /* Styles pour les écrans mobiles */
 @media (max-width: 720px) {
