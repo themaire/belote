@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+interface Manches {
+  [clé: number]: [number, number];
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +21,12 @@ export class AppComponent {
   totalPointsEux = 0;
   annonceNous = 0;
   annonceEux = 0;
-  resultatDonne: any;
+  resultatDonne: any = [];
+
+  mancheActuelle: number = 0; 
+  // resultatsManches: { [clé: number]: [number, number] } = {};
+  resultatsManches: Manches = {};
+  // resultatsManches: Manches = {0: [0, 0]};
 
   calculerPointsDonne() {
     if (Number(this.annonceEux) === 20 || Number(this.annonceNous) === 20) {
@@ -106,6 +115,11 @@ export class AppComponent {
   }
 
   nouvelleManche() {
+    this.ajouterDonne();
+    this.mancheActuelle++ ;
+    this.resultatsManches[this.mancheActuelle] = [this.totalPointsNous, this.totalPointsEux];
+    console.log(this.resultatsManches)
+
     this.donneCourante = 1;
 
     // Manche
@@ -120,5 +134,9 @@ export class AppComponent {
     this.resultatDonne = null;
 
     this.maxPoints = 162;
+  }
+
+  getResultManches() {
+    return Object.entries(this.resultatsManches);
   }
 }

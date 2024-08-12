@@ -12,7 +12,7 @@
       <div class="equipes">
         <div class="joueur1 joueur">
           <div class="equipeNous">
-            <h3>Nous</h3>
+            <h3>Equipe 1</h3>
             <input
               type="number"
               [(ngModel)]="pointsNous"
@@ -29,7 +29,7 @@
         </div>
         <div class="joueur2 joueur">
           <div class="equipeEux">
-            <h3>Eux</h3>
+            <h3>Equipe 2</h3>
             <input
               type="number"
               [(ngModel)]="pointsEux"
@@ -48,16 +48,29 @@
     </main>
   </div>
   <div class="boutons">
-    <button (click)="calculerPointsDonne()">Calculer donne</button>
-    <div class="point" *ngIf="resultatDonne">
-      <p>**Donne {{ donneCourante }} :**</p>
-      <p>Nous : {{ resultatDonne.pointsNous }}</p>
-      <p>Eux : {{ resultatDonne.pointsEux }}</p>
-    </div>
-    <button (click)="razDonne()">RAZ</button>
-
     <!-- Soit l'un ou l'autre bouton -->
     <button *ngIf="donneCourante < 12" (click)="ajouterDonne()">Ajouter une donne</button>
     <button *ngIf="donneCourante == 12" (click)="nouvelleManche()">Nouvelle manche</button>
+
+    <button (click)="calculerPointsDonne()">Calculer donne</button>
+    <div class="point" *ngIf="resultatDonne">
+      <p>Donne {{ donneCourante }} :</p>
+      <p>Equipe 1 : <br> {{ resultatDonne.pointsNous }}</p>
+      <p><span>Equipe 2 : <br> {{ resultatDonne.pointsEux }}</span></p>
+    </div>
+    <button (click)="razDonne()">RAZ</button>
+
   </div>
+
+  <div class="resultat" *ngIf="mancheActuelle != 0">
+
+    <ul>
+      <li *ngFor="let entry of getResultManches()">
+        Manche {{ entry[0] }} :<br> Equipe 1 : {{ entry[1][0] }} -- <span>Equipe 2 : {{ entry[1][1] }}</span>
+      </li>
+    </ul>
+    
+
+  </div>
+
 </div>

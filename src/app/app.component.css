@@ -14,8 +14,8 @@
   grid-template-columns: 5fr 1fr;
   align-items: center;
   justify-content: center;
-  width: 1030px;
-  height: 660px;
+  min-width: 1030px;
+  min-height: 660px;
   background-image: url(../assets/images/fond_bois.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -105,11 +105,14 @@
 }
 
 .boutons {
+  position: relative;
+  top: 150px;
   display: flex;
   flex-direction: column;
   padding: 15px;
   justify-content: center;
   gap: 20px;
+  opacity: 0.8;
 }
 button {
   border-radius: 20px;
@@ -119,6 +122,10 @@ button {
   box-shadow: 10px 5px 5px black;
 }
 .point {
+  position: absolute;
+  top: -220px; /* Ajuster cette valeur en fonction de l'espace dont vous avez besoin */
+  left: 10px;
+  right: 15px;
   background: white;
   opacity: 0.8;
   border-radius: 20px;
@@ -133,9 +140,37 @@ button {
 }
 
 button:hover {
-  background-color: rgb(236, 0, 3, 0.8);
+  background-color: rgba(0, 128, 0, 0.8);
   color: white;
 }
+.resultat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px; /* Pour arrondir légèrement les coins */
+  opacity: 0.8;
+}
+
+.resultat ul {
+  list-style-type: none; /* Supprimer les puces des éléments de liste */
+  padding: 0; /* Supprimer le padding par défaut de la liste */
+  margin: 0;
+}
+
+.resultat li {
+  color: black;
+  padding: 10px 20px; /* Espacement interne pour chaque élément */
+  margin-bottom: 30px; /* Espacement entre les éléments */
+  border-radius: 20px; /* Arrondir légèrement les coins de chaque élément */
+  background-color: white; /* Assure un fond blanc pour chaque élément de la liste */
+  box-shadow: 10px 5px 5px black; /* Ajoute une légère ombre pour séparer les éléments */
+}
+span {
+  font-weight: bold;
+  color: #ec0003;
+}
+
 
 
 /* Styles pour les écrans mobiles */
