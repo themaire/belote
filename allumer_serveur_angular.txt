@@ -2,3 +2,5 @@ Aller dans un terminal Linux Ubuntu puis :
 
 cd /mnt/c/Users/audre/OneDrive/Documents/perso/belote
 ng serve --host 0.0.0.0
+
+## test
